@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 public class RegisterRequest {
     private String email;
     private String password;
+    private String DOB;
+    private String address;
+    private String phone;
     private String firstName;
     private String lastName;
 }
