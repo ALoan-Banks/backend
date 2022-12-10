@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
+import com.revature.dtos.ResetPasswordRequest; // added this import statement
+import com.revature.services.UserService; // added this import statement
 import com.revature.models.User;
 import com.revature.services.AuthService;
 import org.springframework.http.HttpStatus;
@@ -17,9 +19,11 @@ import java.util.Optional;
 public class AuthController {
 
     private final AuthService authService;
+    private final UserService userService;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, UserService userService) {
         this.authService = authService;
+        this.userService = userService;
     }
 
     @PostMapping("/login")
@@ -54,5 +58,16 @@ public class AuthController {
                 registerRequest.getPhone());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(created));
+    }
+
+    /**
+     Handles a request to reset a user's password.
+     @param resetPasswordRequest the request object containing the new password
+     @return a {@code ResponseEntity} containing the updated {@code User} object,
+     with a status of {@code HttpStatus.CREATED} if the password was reset successfully
+     */
+    @PostMapping("/reset/password")
+    public ResponseEntity<User> resetPassword(@RequestBody ResetPasswordRequest resetPasswordRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.userService.resetPassword(resetPasswordRequest));
     }
 }
