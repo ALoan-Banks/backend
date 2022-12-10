@@ -14,6 +14,7 @@ C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks P
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\models\Account.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\aspects\RestExceptionHandler.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\controllers\AuthController.java
+C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\dtos\ResetPasswordRequest.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\services\AccountService.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\annotations\Authorized.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\annotations\AuthRestriction.java
