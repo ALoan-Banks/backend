@@ -3,6 +3,7 @@ C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks P
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\models\Transaction.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\models\TransactionType.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\models\User.java
+C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\exceptions\EmailDoesntExistException.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\controllers\AccountController.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\aspects\AuthAspect.java
 C:\Users\PC INTEL I9 10850K\Documents\Work\revature\onlineTraining\ALoan Banks Project\backend\src\main\java\com\revature\exceptions\NotLoggedInException.java
