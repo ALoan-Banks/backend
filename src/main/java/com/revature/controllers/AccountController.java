@@ -48,6 +48,12 @@ public class AccountController {
     }
 
     @Authorized
+    @GetMapping("/{id}/transactionTop")
+    public ResponseEntity<List<Transaction>> getTopTransactions(@PathVariable("id") int accountId) {
+        return ResponseEntity.ok(accountService.getTopTransactions(accountId));
+    }
+
+    @Authorized
     @PostMapping(value = "/{id}/transaction", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Transaction> addTransaction(@PathVariable("id") int accountId, @RequestBody Transaction transaction) {
         return new ResponseEntity<>(accountService.upsertTransaction(accountId, transaction), HttpStatus.CREATED);

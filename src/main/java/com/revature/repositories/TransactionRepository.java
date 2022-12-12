@@ -11,4 +11,7 @@ import java.util.List;
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
 
     List<Transaction> findByAccount(Account account);
+
+    List<Transaction> findTop5ByAccountOrderByIdDesc(Account account);
+
 }

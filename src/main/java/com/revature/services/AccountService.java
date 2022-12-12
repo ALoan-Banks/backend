@@ -54,6 +54,11 @@ public class AccountService {
         return transactionRepository.findByAccount(account);
     }
 
+    public List<Transaction> getTopTransactions(int accountId) {
+        Account account = accountRepository.getById(accountId);
+        return transactionRepository.findTop5ByAccountOrderByIdDesc(account);
+    }
+
     public Transaction upsertTransaction(int accountId, Transaction transactionToUpsert) {
 
             Account account = accountRepository.getById(accountId);
