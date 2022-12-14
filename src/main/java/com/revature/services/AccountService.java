@@ -54,6 +54,13 @@ public class AccountService {
         return transactionRepository.findByAccount(account);
     }
 
+    public List<Transaction> getAllPositiveTransactions(int accountId) {
+        // Grabbing account by Id
+        Account account = accountRepository.getById(accountId);
+        return transactionRepository.findByAccountAndType(account, TransactionType.Income);
+                // getAllByType(TransactionType.Income);
+    }
+
     public Transaction upsertTransaction(int accountId, Transaction transactionToUpsert) {
 
             Account account = accountRepository.getById(accountId);
