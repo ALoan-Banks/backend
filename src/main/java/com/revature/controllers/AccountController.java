@@ -48,9 +48,9 @@ public class AccountController {
     }
 
     @Authorized
-    @GetMapping("/{id}/transactionTop")
-    public ResponseEntity<List<Transaction>> getTopTransactions(@PathVariable("id") int accountId) {
-        return ResponseEntity.ok(accountService.getTopTransactions(accountId));
+    @GetMapping("/{id}/{limit}/transactionTop")
+    public ResponseEntity<List<Transaction>> getTopTransactions(@PathVariable("id") int accountId, @PathVariable("limit") int limit) {
+        return ResponseEntity.ok(accountService.getTopTransactions(accountId, limit));
     }
 
     @Authorized

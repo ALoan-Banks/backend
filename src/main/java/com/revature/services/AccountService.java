@@ -54,9 +54,15 @@ public class AccountService {
         return transactionRepository.findByAccount(account);
     }
 
-    public List<Transaction> getTopTransactions(int accountId) {
+    public List<Transaction> getTopTransactions(int accountId, int limit) {
         Account account = accountRepository.getById(accountId);
-        return transactionRepository.findTop5ByAccountOrderByIdDesc(account);
+        List<Transaction> transactions = transactionRepository.findByAccountOrderByIdDesc(account);
+
+        if (limit > transactions.size()) {
+            limit = transactions.size();
+        }
+
+        return transactions.subList(0, limit);
     }
 
     public Transaction upsertTransaction(int accountId, Transaction transactionToUpsert) {

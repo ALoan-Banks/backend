@@ -12,6 +12,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 
     List<Transaction> findByAccount(Account account);
 
-    List<Transaction> findTop5ByAccountOrderByIdDesc(Account account);
+    List<Transaction> findByAccountOrderByIdDesc(Account account);
+
+    List<Transaction> findTopByAccountOrderByIdDesc(Account account);
 
 }
