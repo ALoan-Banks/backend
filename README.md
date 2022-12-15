@@ -1,6 +1,5 @@
-# Project Name
+# ALoan-Banks Backend Server
 > Outline a brief description of your project.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -25,9 +24,14 @@
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- Java 8
+- Spring Boot Actuator
+- Spring Boot Data JPA
+- Spring Boot Starter Web
+- Spring Boot Devtools
+- Postgresql
+- Lombok
+- Spring Boot Starter Test
 
 
 ## Features
@@ -60,7 +64,7 @@ Provide various use cases and code examples here.
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: _complete_
 
 
 ## Room for Improvement
