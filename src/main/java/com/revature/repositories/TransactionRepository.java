@@ -16,4 +16,9 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     //List<Transaction> getAllByType(TransactionType income);
 
     List<Transaction> findByAccountAndType(Account account, TransactionType income);
+
+    List<Transaction> findByAccountOrderByIdDesc(Account account);
+
+    List<Transaction> findTopByAccountOrderByIdDesc(Account account);
+
 }

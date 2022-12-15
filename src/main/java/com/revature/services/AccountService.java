@@ -61,6 +61,17 @@ public class AccountService {
                 // getAllByType(TransactionType.Income);
     }
 
+    public List<Transaction> getTopTransactions(int accountId, int limit) {
+        Account account = accountRepository.getById(accountId);
+        List<Transaction> transactions = transactionRepository.findByAccountOrderByIdDesc(account);
+
+        if (limit > transactions.size()) {
+            limit = transactions.size();
+        }
+
+        return transactions.subList(0, limit);
+    }
+
     public Transaction upsertTransaction(int accountId, Transaction transactionToUpsert) {
 
             Account account = accountRepository.getById(accountId);
