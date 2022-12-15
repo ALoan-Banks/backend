@@ -1,6 +1,5 @@
 package com.revature.services;
 
-import com.revature.models.Account;
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -34,5 +33,20 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User resetPassword(ResetPasswordRequest resetPasswordRequest) {
+        // get user from database
+        User updateUser = userRepository.findByEmail(resetPasswordRequest.getEmail()).isPresent()?userRepository.findByEmail(resetPasswordRequest.getEmail()).get():null;
 
+        if(updateUser==null){
+            throw new EmailDoesntExistException("Email doesn't exist");
+        }
+
+        // check DOB matches with user
+        if(updateUser.getDOB().equalsIgnoreCase(resetPasswordRequest.getDOB())){
+            updateUser.setPassword(resetPasswordRequest.getNewPassword());
+        }
+
+        // return user
+        return userRepository.save(updateUser);
+    }
 }
