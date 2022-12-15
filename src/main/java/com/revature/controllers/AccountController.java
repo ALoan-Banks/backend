@@ -3,6 +3,7 @@ package com.revature.controllers;
 import com.revature.annotations.Authorized;
 import com.revature.models.Account;
 import com.revature.models.Transaction;
+import com.revature.models.TransactionType;
 import com.revature.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,6 +52,12 @@ public class AccountController {
     @PostMapping(value = "/{id}/transaction", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Transaction> addTransaction(@PathVariable("id") int accountId, @RequestBody Transaction transaction) {
         return new ResponseEntity<>(accountService.upsertTransaction(accountId, transaction), HttpStatus.CREATED);
+    }
+
+    @Authorized
+    @GetMapping("/{id}/income")
+    public ResponseEntity<List<Transaction>> getAllByType(@PathVariable("id") int accountId) {
+        return ResponseEntity.ok(accountService.getAllPositiveTransactions(accountId));
     }
 
 }
