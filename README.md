@@ -25,20 +25,31 @@
 
 ## Technologies Used
 - Java 8
-- Spring Boot Actuator
-- Spring Boot Data JPA
-- Spring Boot Starter Web
-- Spring Boot Devtools
-- Postgresql
+- Maven
+- Spring Boot
+-- Spring Boot Actuator
+-- Spring Boot Data JPA
+-- Spring Boot Starter Web
+-- Spring Boot Devtools
+-- Spring Boot Starter Test
+- PostgreSQL
+-- DBeaver
+-- PGAdmin
 - Lombok
-- Spring Boot Starter Test
+- JUnit 5
+- Mockito
+- IntelliJ IDE
+- SonarCloud
+- Docker
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+The purpose of this application is to run the backend of the ALoan Bank. 
+- User is able to register an account, which is POSTed into the PostreSQL database.
+- User is able to login to the application, which is checked with database.
+- User is able to create an account, which is POSTed into the database.
+- User is able to view their account, including income and expenses. 
+- User is able to view their user profile, which is retrieved from the database
 
 
 ## Screenshots
@@ -57,10 +68,7 @@ SonarCloud:
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+Once the environment is setup and you run the program on the IDE of your choice (Recommend IntelliJ is it was the native IDE for this project), go to BankingApplication and run the application from the main method. Postman can be used for verification purposes, to confirm that the backend is running properly before the frontend of the application is launched. 
 
 
 ## Project Status
