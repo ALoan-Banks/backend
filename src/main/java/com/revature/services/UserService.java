@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import com.revature.dtos.ResetPasswordRequest;
+import com.revature.exceptions.EmailDoesntExistException;
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 import org.springframework.stereotype.Service;
