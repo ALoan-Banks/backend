@@ -3,7 +3,9 @@ package com.revature.controllers;
 import com.revature.annotations.Authorized;
 import com.revature.models.Account;
 import com.revature.models.Transaction;
+import com.revature.models.User;
 import com.revature.services.AccountService;
+import com.revature.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +23,8 @@ public class AccountController {
 
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private UserService userService;
 
     @Authorized
     @Transactional
@@ -37,7 +41,8 @@ public class AccountController {
     @Authorized
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Account> createAccount(@RequestBody Account account, @RequestHeader("Current-User") String userId) {
-        return ResponseEntity.ok(accountService.upsertAccount(account, userId));
+        User user = userService.findById(Integer.parseInt(userId));
+        return ResponseEntity.ok(accountService.upsertAccount(account, user));
     }
 
     @Authorized

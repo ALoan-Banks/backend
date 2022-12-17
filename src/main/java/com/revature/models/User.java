@@ -1,16 +1,13 @@
 package com.revature.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -24,4 +21,15 @@ public class User {
     private String DOB;
     private String address;
     private String phone;
+
+    public User(Integer id, String email, String firstName, String lastName, String password, String DOB, String address, String phone) {
+        this.id = id;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.DOB = DOB;
+        this.address = address;
+        this.phone = phone;
+    }
 }

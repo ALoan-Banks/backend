@@ -23,26 +23,25 @@ public class AccountService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    @Autowired
-    private UserService userService;
 
-    public Optional<Account> findByUserId(int id) {
-        User user = userService.findById(id);
-        return accountRepository.findByUser(user);
+    public AccountService(AccountRepository accountRepository, TransactionRepository transactionRepository) {
+        this.accountRepository = accountRepository;
+        this.transactionRepository = transactionRepository;
     }
 
-    public Account upsertAccount(Account accountToUpsert, String userId) {
+    public Optional<Account> findByUserId(int id) {
+        return accountRepository.findByUserId(id);
+    }
 
-        int id = Integer.parseInt(userId);
-        User user = userService.findById(id);
-
+    public Account upsertAccount(Account accountToUpsert, User user) {
+        // replace existing account if it exists
         if(accountRepository.existsById(accountToUpsert.getId())) {
             Account account = accountRepository.getById(accountToUpsert.getId());
             account.setBalance(accountToUpsert.getBalance());
             account.setDescription(accountToUpsert.getDescription());
             account.setName(accountToUpsert.getName());
             return accountRepository.saveAndFlush(account);
-        } else {
+        } else { // create new account
             accountToUpsert.setUser(user);
             accountToUpsert.setCreationDate(Date.from(Instant.now()));
             return accountRepository.save(accountToUpsert);
@@ -55,7 +54,7 @@ public class AccountService {
     }
 
     public List<Transaction> getAllPositiveTransactions(int accountId) {
-        // Grabbing account by Id
+        // Grabbing account by id
         Account account = accountRepository.getById(accountId);
         return transactionRepository.findByAccountAndType(account, TransactionType.Income);
                 // getAllByType(TransactionType.Income);

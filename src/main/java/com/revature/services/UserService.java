@@ -4,6 +4,7 @@ import com.revature.dtos.ResetPasswordRequest;
 import com.revature.exceptions.EmailDoesntExistException;
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    @Autowired
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
