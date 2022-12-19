@@ -72,7 +72,7 @@ SonarCloud:
   - Before you can install and run the backend, you will need to have the following software installed on your machine:
     - Node.js (version 12 or later)
     - PostgreSQL (version 12 or later)
-      **Installation**
+      ## **Installation**
         - Clone the repository: git clone https://github.com/ALoan-Banks/backend.git
         - Navigate to the project directory: cd backend
         - Install the dependencies: npm install
@@ -80,11 +80,11 @@ SonarCloud:
         - Run the database migration script to set up the necessary tables: npm run migrate
         - Run the seed script to populate the database with test data: npm run seed
         - Run the server: npm start
-      **Usage**
+      ## **Usage**
         - To use the API, you will need to obtain a JSON Web Token (JWT) by sending a POST request to the /login endpoint with a JSON payload containing a valid email address and password. The email and password combination must match a user in the database.
         - POST /login Content-Type: application/json { "email": "user@example.com", "password": "password" }
         - The server will respond with a JWT in the Authorization header of the response. You can then include this JWT in the Authorization header of subsequent requests to the API to authenticate yourself.
-      **Sending Requests**
+      ## **Sending Requests**
         - POST /loans: create a new loan application. The request body should include the loan application data in JSON format.
         - GET /loans: get a list of all loan applications. This endpoint requires the admin role.
         - GET /loans/🆔 get a specific loan application by ID. This endpoint requires the admin or lender role.
