@@ -7,7 +7,7 @@ COPY . /workspace
 WORKDIR /workspace
 #Tell it what folder to work out of
 
-EXPOSE 8443
+EXPOSE 8080
 #Tell it what port to connect to
 
 ENTRYPOINT [ "java", "-jar", "target/curated-banking-spring-1.0-SNAPSHOT.jar" ]
