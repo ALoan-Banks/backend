@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.revature.repositories.TransactionRepositoryTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.55 s - in com.revature.repositories.TransactionRepositoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.546 s - in com.revature.repositories.TransactionRepositoryTest
