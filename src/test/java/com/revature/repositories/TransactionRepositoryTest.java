@@ -1,29 +1,15 @@
 package com.revature.repositories;
 
-
-import com.revature.models.Account;
-import com.revature.models.Transaction;
-import com.revature.models.TransactionType;
-import com.revature.models.User;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 class TransactionRepositoryTest {
-
-    @Autowired
-    private TestEntityManager entityManager;
 
     @Autowired
     TransactionRepository subject;
@@ -34,25 +20,8 @@ class TransactionRepositoryTest {
 
     @Test
     public void findByAccount_test() {
-//        // Create test data
-//        User testUser = new User(0,"test@email.com", "Test", "User", "password", "01-15-88", "123 Test St", "123-456-7890");
-//        entityManager.persist(testUser);
-//        Account testAccount = new Account(0, "Test Account", 100.00, "Test Account", new Date(), testUser);
-//        Transaction testTransaction = new Transaction(0, 100.00, "Test Transaction", TransactionType.Income, testAccount);
-//        entityManager.persist(testAccount);
-//        entityManager.persist(testTransaction);
-//        entityManager.flush();
-//
-//        // Call the method being tested
-//        List<Transaction> result = subject.findByAccount(testAccount);
-//
-//        // Assert that the result is as expected
-//        assertThat(result).isNotNull();
-//        assertThat(result).hasSize(1);
-//
-//        // Reattach the testTransaction object to the persistence context
-//        Transaction attachedTransaction = entityManager.merge(testTransaction);
-//        assertThat(result.get(0)).isEqualTo(attachedTransaction);
+        // TransactionRepository method stub of findByAccount
+        // List<Transaction> findByAccount(Account account);
     }
 
     @Test

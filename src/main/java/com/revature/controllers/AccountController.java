@@ -26,7 +26,7 @@ public class AccountController {
     @Autowired
     private UserService userService;
 
-    @Authorized
+//    @Authorized
     @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccount(@PathVariable("id") int accountId) {
