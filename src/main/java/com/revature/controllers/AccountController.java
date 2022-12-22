@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/account")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000", "http://aloanbanks-frontend-bucket.s3-website-us-east-1.amazonaws.com"}, allowCredentials = "true")
 public class AccountController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class AccountController {
     @Autowired
     private UserService userService;
 
-    @Authorized
+//    @Authorized
     @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccount(@PathVariable("id") int accountId) {
@@ -38,32 +38,32 @@ public class AccountController {
         return ResponseEntity.ok(optional.get());
     }
 
-    @Authorized
+//    @Authorized
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Account> createAccount(@RequestBody Account account, @RequestHeader("Current-User") String userId) {
         User user = userService.findById(Integer.parseInt(userId));
         return ResponseEntity.ok(accountService.upsertAccount(account, user));
     }
 
-    @Authorized
+//    @Authorized
     @GetMapping("/{id}/transaction")
     public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("id") int accountId) {
         return ResponseEntity.ok(accountService.getAllTransactions(accountId));
     }
 
-    @Authorized
+//    @Authorized
     @GetMapping("/{id}/{limit}/transactionTop")
     public ResponseEntity<List<Transaction>> getTopTransactions(@PathVariable("id") int accountId, @PathVariable("limit") int limit) {
         return ResponseEntity.ok(accountService.getTopTransactions(accountId, limit));
     }
 
-    @Authorized
+//    @Authorized
     @PostMapping(value = "/{id}/transaction", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Transaction> addTransaction(@PathVariable("id") int accountId, @RequestBody Transaction transaction) {
         return new ResponseEntity<>(accountService.upsertTransaction(accountId, transaction), HttpStatus.CREATED);
     }
 
-    @Authorized
+//    @Authorized
     @GetMapping("/{id}/income")
     public ResponseEntity<List<Transaction>> getAllByType(@PathVariable("id") int accountId) {
         return ResponseEntity.ok(accountService.getAllPositiveTransactions(accountId));
