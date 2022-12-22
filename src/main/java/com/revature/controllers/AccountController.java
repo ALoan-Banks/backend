@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/account")
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000", "http://aloanbanks-frontend-bucket.s3-website-us-east-1.amazonaws.com"}, allowCredentials = "true")
+@CrossOrigin(origins = "*")
 public class AccountController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class AccountController {
     @Autowired
     private UserService userService;
 
-//    @Authorized
+    @Authorized
     @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccount(@PathVariable("id") int accountId) {
